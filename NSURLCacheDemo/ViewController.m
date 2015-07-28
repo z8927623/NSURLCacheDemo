@@ -18,7 +18,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    // Do any additional setup after loading the view, typically from a nib.
     
     self.urlCache = [NSURLCache sharedURLCache];
     // 设置缓存的大小为1MB
