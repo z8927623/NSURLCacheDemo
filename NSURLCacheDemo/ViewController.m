@@ -34,10 +34,10 @@
     NSURL *url = [NSURL URLWithString:paramURLAsString];
 
     // 1 使用协议缓存策略，在HTTP协议的response头中，有一个字段是cache-control，由服务器来告诉客户端如何使用缓存。
-    self.request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0f];
+//    self.request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:60.0f];
     
     // 2 无论缓存是否过期，先使用本地缓存数据。如果缓存中没有请求所对应的数据，那么从原始地址加载数据
-//    self.request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReturnCacheDataElseLoad timeoutInterval:60.0f];
+    self.request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReturnCacheDataElseLoad timeoutInterval:60.0f];
     
     // 3 无论缓存是否过期，先使用本地缓存数据。如果缓存中没有请求所对应的数据，那么放弃从原始地址加载数据，请求视为失败（即：“离线”模式）（如果没有缓存，即使联网，也会请求失败）
 //    self.request = [NSMutableURLRequest requestWithURL:url cachePolicy:NSURLRequestReturnCacheDataDontLoad timeoutInterval:60.0f];
@@ -112,10 +112,22 @@
 }
 
 - (NSCachedURLResponse *)connection:(NSURLConnection *)connection willCacheResponse:(NSCachedURLResponse *)cachedResponse{
-    NSLog(@"将缓存输出: \ndata.length: %ld\nuserInfo: %@\nresponse: %@", cachedResponse.data.length, cachedResponse.userInfo, cachedResponse.response);
-    return(cachedResponse);
-
+//    NSLog(@"将缓存输出: \ndata.length: %ld\nuserInfo: %@\nresponse: %@", cachedResponse.data.length, cachedResponse.userInfo, cachedResponse.response);
+//    return(cachedResponse);
+    
 //    return nil;  // 返回nil则不会缓存
+    
+    NSMutableDictionary *mutableUserInfo = [[cachedResponse userInfo] mutableCopy];
+//    NSMutableData *mutableData = [[cachedResponse data] mutableCopy];
+    // 修改缓存内容
+    NSDictionary *dic = @{ @"haha" : @"呵呵哒"};
+    NSData *mutableData = [NSJSONSerialization dataWithJSONObject:dic options:NSJSONWritingPrettyPrinted error:nil];
+    NSURLCacheStoragePolicy storagePolicy = NSURLCacheStorageAllowedInMemoryOnly;
+    
+    return [[NSCachedURLResponse alloc] initWithResponse:[cachedResponse response]
+                                                    data:mutableData
+                                                userInfo:mutableUserInfo
+                                           storagePolicy:storagePolicy];
 }
 
 - (void)connectionDidFinishLoading:(NSURLConnection *)connection{
