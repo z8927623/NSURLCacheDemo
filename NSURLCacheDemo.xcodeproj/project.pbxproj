@@ -14,6 +14,8 @@
 		B8BD14F61A945DE600C3C127 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B8BD14F51A945DE600C3C127 /* Images.xcassets */; };
 		B8BD14F91A945DE600C3C127 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8BD14F71A945DE600C3C127 /* LaunchScreen.xib */; };
 		B8BD15051A945DE600C3C127 /* NSURLCacheDemoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B8BD15041A945DE600C3C127 /* NSURLCacheDemoTests.m */; };
+		E89828F61BD77D5B008409F1 /* CNNDelegateClassObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = E89828F31BD77D5A008409F1 /* CNNDelegateClassObserver.m */; };
+		E89828F71BD77D5B008409F1 /* NSURLConnection+CNNSwizzled.m in Sources */ = {isa = PBXBuildFile; fileRef = E89828F51BD77D5B008409F1 /* NSURLConnection+CNNSwizzled.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -40,6 +42,10 @@
 		B8BD14FE1A945DE600C3C127 /* NSURLCacheDemoTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NSURLCacheDemoTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B8BD15031A945DE600C3C127 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B8BD15041A945DE600C3C127 /* NSURLCacheDemoTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSURLCacheDemoTests.m; sourceTree = "<group>"; };
+		E89828F21BD77D5A008409F1 /* CNNDelegateClassObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CNNDelegateClassObserver.h; sourceTree = "<group>"; };
+		E89828F31BD77D5A008409F1 /* CNNDelegateClassObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CNNDelegateClassObserver.m; sourceTree = "<group>"; };
+		E89828F41BD77D5A008409F1 /* NSURLConnection+CNNSwizzled.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSURLConnection+CNNSwizzled.h"; sourceTree = "<group>"; };
+		E89828F51BD77D5B008409F1 /* NSURLConnection+CNNSwizzled.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSURLConnection+CNNSwizzled.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +87,10 @@
 		B8BD14E71A945DE600C3C127 /* NSURLCacheDemo */ = {
 			isa = PBXGroup;
 			children = (
+				E89828F21BD77D5A008409F1 /* CNNDelegateClassObserver.h */,
+				E89828F31BD77D5A008409F1 /* CNNDelegateClassObserver.m */,
+				E89828F41BD77D5A008409F1 /* NSURLConnection+CNNSwizzled.h */,
+				E89828F51BD77D5B008409F1 /* NSURLConnection+CNNSwizzled.m */,
 				B8BD14EC1A945DE600C3C127 /* AppDelegate.h */,
 				B8BD14ED1A945DE600C3C127 /* AppDelegate.m */,
 				B8BD14EF1A945DE600C3C127 /* ViewController.h */,
@@ -220,6 +230,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				B8BD14F11A945DE600C3C127 /* ViewController.m in Sources */,
+				E89828F71BD77D5B008409F1 /* NSURLConnection+CNNSwizzled.m in Sources */,
+				E89828F61BD77D5B008409F1 /* CNNDelegateClassObserver.m in Sources */,
 				B8BD14EE1A945DE600C3C127 /* AppDelegate.m in Sources */,
 				B8BD14EB1A945DE600C3C127 /* main.m in Sources */,
 			);
@@ -412,6 +424,7 @@
 				B8BD150A1A945DE700C3C127 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B8BD150B1A945DE700C3C127 /* Build configuration list for PBXNativeTarget "NSURLCacheDemoTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +433,7 @@
 				B8BD150D1A945DE700C3C127 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
